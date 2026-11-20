@@ -65,7 +65,7 @@ window.speechSynthesis.speak(utter);
 if (cuePlayer) {
 const playAt = (idx) => {
 if (idx >= list.length) return;
-cuePlayer.src = audio/cue_${fnv1a32((idx))}.wav;
+        cuePlayer.src = "audio/cue_" + fnv1a32(list.at(idx)) + ".wav";
 cuePlayer.onended = () => {
 if (idx + 1 < list.length) playAt(idx + 1);
 };
