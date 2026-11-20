@@ -38,7 +38,6 @@ export function applyBrushGesture(state, detectedShape) {
 
   const nextCompleted = Math.min(4, state.completedCount + 1);
   const nextLayers = Math.min(4, state.stageIndex + 2);
-Use code with caution.
 const isFinal = state.stageIndex >= SHODO_KOANS.length - 1;
 if (isFinal) {
 return {
