@@ -13,7 +13,7 @@ return h.toString(16).padStart(8, "0");
 }
 function formatKoanIntro(k) {
 if (!k || Array.isArray(k)) return "";
-return ${k.title}. ${k.koan} ${k.sceneOpening};
+return k.title + ". " + k.koan + " " + k.sceneOpening;
 }
 export function initShodoBrushApp() {
 const soundscape = createCelticShodoSoundscape();

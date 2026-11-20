@@ -36,7 +36,7 @@ js_extract = """
 import { SHODO_KOANS } from './src/shodo-koans-data.js';
 import { createShodoSanctuaryState, applyBrushGesture } from './src/shodo-kernel.js';
 const texts = new Set();
-SHODO_KOANS.forEach((k) => texts.add(${k.title}. ${k.koan} ${k.sceneOpening}));
+SHODO_KOANS.forEach((k) => texts.add(k.title + ". " + k.koan + " " + k.sceneOpening));
 const shapes = ['NONE', 'CIRCLE', 'SLASH', 'WAVE', 'CROSS'];
 let cur = createShodoSanctuaryState();
 for (let stage = 0; stage < SHODO_KOANS.length; stage += 1) {
