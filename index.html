@@ -1,19 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zen Shodō &amp; Ogham Koan Brush Sanctuary</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="sanctuary-column">
+    <header>
+      <h1>Zen Shodō &amp; Ogham Koan Brush Sanctuary</h1>
+      <div id="hud-stage">Koan 1 of 4 • Celtic–Japanese Folk Layers: 1/4</div>
+    </header>
 
+    <div class="ambient-controls" role="region" aria-label="Sanctuary Controls">
+      <button id="btn-clear-canvas" type="button">Clear Parchment</button>
+      <button id="btn-reset" type="button">↺ Begin Again</button>
+    </div>
 
+    <section class="story-chamber" aria-label="Contemplative Brush and Koan Chamber">
+      <h2 id="koan-title">I. The Moon Reflected in Water (Dōgen Zenji — Genjōkōan)</h2>
+      <blockquote id="koan-quote">“The moon does not get wet, nor is the water broken. Even in a single dewdrop, the whole moon is reflected.”</blockquote>
 
+      <div id="storyteller-voice" class="voice-card" role="status" aria-live="polite">
+        Moonlight rests on a still mountain tarn beside Brú na Bóinne. Sweep a single closed circle (Ensō) across the parchment—or press O—to hold moon and water in one unbroken loop.
+      </div>
 
+      <canvas id="washi-canvas" width="640" height="240" aria-label="Washi Parchment Celestial Brush Canvas"></canvas>
+      <div id="shape-deck" class="gesture-deck" role="group" aria-label="Accessible Brush Shape Controls"></div>
+    </section>
 
-Zen Shodō & Ogham Koan Brush Sanctuary
-Zen Shodō & Ogham Koan Brush Sanctuary
-Koan 1 of 4 • Celtic–Japanese Folk Layers: 1/4
-Clear Parchment
-↺ Begin Again
-I. The Moon Reflected in Water (Dōgen Zenji — Genjōkōan)
-“The moon does not get wet, nor is the water broken. Even in a single dewdrop, the whole moon is reflected.”
-Moonlight rests on a still mountain tarn beside Brú na Bóinne. Sweep a single closed circle (Ensō) across the parchment—or press O—to hold moon and water in one unbroken loop.
-Embodied Brush & Acoustic Parity Note
+    <details class="parallel-panel" open>
+      <summary>Embodied Brush &amp; Acoustic Parity Note</summary>
+      <p id="parallel-critique">
+        Embodied Stroke Over Coordinate Grid: Instead of steering a cursor toward pixel coordinates, drawing the circle itself embodies non-dual unity between observer and reflection.
+      </p>
+    </details>
 
-Embodied Stroke Over Coordinate Grid: Instead of steering a cursor toward pixel coordinates, drawing the circle itself embodies non-dual unity between observer and reflection.
+    <section class="receipt-panel" aria-label="Cryptographic Stillness Receipt">
+      <button id="btn-receipt" type="button">Mint Reflection Receipt (SHA-256)</button>
+      <textarea id="receipt-output" rows="4" readonly aria-label="SHA-256 reflection receipt"></textarea>
+    </section>
+  </main>
 
-Mint Reflection Receipt (SHA-256)
-
+  <script type="module" src="src/brush-app.js"></script>
+</body>
+</html>
