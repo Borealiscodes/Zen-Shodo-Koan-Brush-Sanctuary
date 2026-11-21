@@ -69,7 +69,7 @@ if (idx >= list.length) return;
 cuePlayer.onended = () => {
 if (idx + 1 < list.length) playAt(idx + 1);
 };
-()
+      playAt(0);
 .then(() => {
 hasStartedIntro = true;
 })
