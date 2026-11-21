@@ -168,7 +168,7 @@ const scaleX = canvasEl.width / (rect.width || 1);
 const scaleY = canvasEl.height / (rect.height || 1);
 return {
 x: (ev.clientX - rect.left) * scaleX,
-y: (ev.clientY - ) * scaleY,
+y: (ev.clientY - rect.top) * scaleY,
 };
 };
 canvasEl.addEventListener("pointerdown", (ev) => {
