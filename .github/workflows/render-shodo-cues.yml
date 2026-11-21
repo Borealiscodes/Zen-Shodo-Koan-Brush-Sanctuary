@@ -1,41 +1,44 @@
-name: Render Shodō & Ogham Koan Voice Cues (.wav)
+name: Render Shodo and Ogham Koan Voice Cues
+
 on:
-workflow_dispatch:
-inputs:
-voice_model:
-description: "Grounded regional VITS voice (en_GB-alan-medium or en_GB-alba-medium)"
-required: true
-default: "en_GB-alan-medium"
-length_scale:
-description: "Unhurried Roundhouse cadence (1.28 = calm contemplative pace)"
-required: true
-default: "1.28"
+  workflow_dispatch:
+    inputs:
+      voice_model:
+        description: "Grounded regional VITS voice (en_GB-alan-medium or en_GB-alba-medium)"
+        required: true
+        default: "en_GB-alan-medium"
+      length_scale:
+        description: "Unhurried Roundhouse cadence (1.28 = calm contemplative pace)"
+        required: true
+        default: "1.28"
+
 permissions:
-contents: write
+  contents: write
+
 jobs:
-build-shodo-cues:
-runs-on: ubuntu-latest
-timeout-minutes: 5
-steps:
-- uses: actions/checkout@v4
-- uses: actions/setup-node@v4
-with:
-node-version: "22"
-- uses: actions/setup-python@v5
-with:
-python-version: "3.11"
-- name: Install piper-tts
-run: pip install --upgrade pip piper-tts
-- name: Render all Shodō & Ogham content-hashed cues
-run: |
-VOICE="${{ github.event.inputs.voice_model }}"
-SCALE="${{ github.event.inputs.length_scale }}"
-python3 -m _voices --download-dir . "$VOICE"
-python3 scripts/render_shodo_cues.py "${VOICE}.onnx" audio "$SCALE"
-rm -f *.onnx *.onnx.json
-- name: Commit rendered .wav cues to audio/
-run: |
-git config  "github-actions[bot]"
-git config user.email "41898282+github-actions[bot]@github.com"
-git add -A audio/
-git diff --cached --quiet || git commit -m "chore(audio): render Shodo & Ogham voice cues (${{ github.event.inputs.voice_model }})" && git push
+  build-shodo-cues:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install piper-tts
+        run: pip install --upgrade pip piper-tts
+      - name: Render all Shodo and Ogham content-hashed cues
+        run: |
+          VOICE="${{ github.event.inputs.voice_model }}"
+          SCALE="${{ github.event.inputs.length_scale }}"
+          python3 -m piper.download_voices --download-dir . "$VOICE"
+          python3 scripts/render_shodo_cues.py "${VOICE}.onnx" audio "$SCALE"
+          rm -f *.onnx *.onnx.json
+      - name: Commit rendered .wav cues to audio/
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A audio/
+          git diff --cached --quiet || git commit -m "chore(audio): render Shodo & Ogham voice cues (${{ github.event.inputs.voice_model }})" && git push
