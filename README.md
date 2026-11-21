@@ -63,3 +63,9 @@ Part of the open contemplative accessibility research series by **Borealis Seren
 * **Related Repositories:** [`Zen-Parable-Embodied-Voice-Edition`](https://github.com) • [`Celtic-Shodo-Wind-Odyssey`](https://github.com)
 
 **License:** MIT License • `Signed-off-by: Borealis Serenity Hedling <chguard-sentinel@vaked.dev>`
+
+---
+
+## Academic Deposit 
+
+Hedling, B. S. (2026). Between Freehand Brush Geometry and Non-Visual Parity: Technical Primitives, Canvas Accessibility Limits, and Lessons from Multi-Sensory Game Design (Version v1.0). Zenodo. https://doi.org/10.5281/zenodo.24416614
